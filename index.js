@@ -2,19 +2,23 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+
+// Destructuring         // Rest
 const things = [1, 2, 3, 4, 5] 
-const [first, , third,...rest] = things
+const stupid = things === [1, 2, 3, 4, 5]
 
-// Spread, Rest, Desetructuring
+const [arbitrary, , thing, ...rest] = things
 
-const things2 = [...things]
+// Spread, Rest, Destructuring
+// const things2 = [...things] // Spreads things into things2, an exact copy in new memory location
 
 const myThing = new Object() // {}
+const myString = new String("You suck") // Sting
+
+const somethingElse = myString === "You suck"
 
 const dumbName = {a: {b: 2}} // resolves to what it is.
 const  {a: chris} = dumbName
-
-console.log(chris)
 
 // const whatever2 = {...whatever} // {b: 2}
 
@@ -23,9 +27,10 @@ const input = 'Anthony'
 // Spread takes properties and spreads into something else
 // Rest does the opposite, takes indeterminant? number of properties and gathers them into a parameter
 
+let variable = 'Anthony' === 'Anthony' // String literal
+console.log("🫣 | file: index.js:31 | variable:", variable)
 
-// 'Anthony' // String literal
-// 1 // Number literal
+// 1 === 1 // Number literal
 // `` // Template literal
 // `${interpolation} string` // template literal
 
@@ -38,9 +43,8 @@ const input = 'Anthony'
 // }
 
 function something(array, ...another) { // Example of rest (...another) takes additional args
-  console.log("🚀 ~ file: index.js:41 ~ something ~ another:", another)
-  const copy = [...things]
-  if (copy.length === 5) {
+  const copy = [...another]
+  if ( copy.length === 5) {
     array.pop()
   } else {
     console.log('NAH')
